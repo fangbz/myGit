@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="default" namespace="/" extends="struts-default">
+    
+       <action name="savePerson" class="bz.action.PersonAction" method="savePerson">
+           <result name="success">/listAll.jsp</result>
+       </action>
+       
+       <action name="deletePerson" class="bz.action.PersonAction" method="deletePerson">
+           <result name="success">/listAll.jsp</result>
+       </action>
+       
+       <action name="updatePerson" class="bz.action.PersonAction" method="updatePerson">
+          <result name="success">/listAll.jsp</result>
+          <result name="input">/listAll.jsp</result>
+       </action>
+       
+       <action name="toUpdatePerson" class="bz.action.PersonAction" method="getPerson">
+          <result name="success">/update.jsp</result>
+       </action>
+       <action name="getPerson" class="bz.action.PersonAction" method="getPerson">
+           <result name="success">/getPerson.jsp</result>
+       </action>
+       
+       <action name="ognlAction" class="bz.action.OgnlAction">
+       <interceptor-ref name="defaultStack"/>
+        <interceptor-ref name="execAndWait"/>
+         <result name="wait">wait.jsp</result>
+          <result name="success"> /ognl.jsp </result>
+       </action>
+       
+    </package>
+
+
+
+</struts>
